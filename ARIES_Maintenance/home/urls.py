@@ -1,0 +1,47 @@
+from django.urls import path
+from home import views
+from django.contrib.auth import views as auth_views
+
+
+urlpatterns = [
+    path("", views.index, name='index'),
+    path("compressor/", views.compressor_view, name='compressor'),
+    path("part1/", views.part1_view, name='part1'),
+    path('aries_login/', views.login_view, name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path("part2/", views.part2_view, name='part2'),
+    path("part3/", views.part3_view, name='part3'),
+    path("part4/", views.part4_view, name='part4'),
+    path("part5/", views.part5_view, name='part5'),
+    path("chiller/", views.chiller_view, name='chiller'),
+    path("hydraulicpump/", views.hydraulicpump_view, name='hydraulicpump'),
+    path("notification/", views.notification_view, name='notification'),
+    path("sensordata/", views.sensordata_view, name='sensordata'),
+    path("part6/", views.part6_view, name='part6'),
+    path("part7/", views.part7_view, name='part7'),
+    path("part8/", views.part8_view, name='part8'),
+    path("part9/", views.part9_view, name='part9'),
+    path("part10/", views.part10_view, name='part10'),
+    path("contact/", views.contact_view, name='contact'),
+    path("cpart1/", views.cpart1_view, name='cpart1'),
+    path("cpart2/", views.cpart2_view, name='cpart2'),
+    path("cpart3/", views.cpart3_view, name='cpart3'),
+    path("cpart4/", views.cpart4_view, name='cpart4'),
+    path("cpart5/", views.cpart5_view, name='cpart5'),
+    path("cpart6/", views.cpart6_view, name='cpart6'),
+    path("cpart7/", views.cpart7_view, name='cpart7'),
+    path("cpart8/", views.cpart8_view, name='cpart8'),
+    path("cpart9/", views.cpart9_view, name='cpart9'),
+    path("cpart10/", views.cpart10_view, name='cpart10'),
+    path("hpart1/", views.hpart1_view, name='hpart1'),
+    path("hpart2/", views.hpart2_view, name='hpart2'),
+    path("hpart3/", views.hpart3_view, name='hpart3'),
+    path("hpart4/", views.hpart4_view, name='hpart4'),
+    path("hpart5/", views.hpart5_view, name='hpart5'),
+    path("hpart6/", views.hpart6_view, name='hpart6'),
+    path("hpart7/", views.hpart7_view, name='hpart7'),
+    path("hpart8/", views.hpart8_view, name='hpart8'),
+    path("hpart9/", views.hpart9_view, name='hpart9'),
+    path("hpart10/", views.hpart10_view, name='hpart10'),
+    
+]

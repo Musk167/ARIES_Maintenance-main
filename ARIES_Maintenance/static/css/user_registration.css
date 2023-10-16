@@ -1,0 +1,85 @@
+body {
+    /* font-family: Arial, Helvetica, sans-serif; */
+    /* background-color: black; */
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+  
+* {
+    box-sizing: border-box;
+}
+  
+  /* Add padding to containers */
+/*.container {
+    padding: 20px;
+    background-color: white;
+}*/
+  
+  /* Full-width input fields */
+    /* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 9px 15px;
+  margin: 5px 0 0px 0;
+  display: inline-block;
+  border: none;
+  background: #d7d7d7;
+  color: #323232;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+  
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+  
+  /* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+  
+  /* Set a style for the submit button */
+.registerbtn {
+    background-color: #2f3192;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+  
+.registerbtn:hover {
+    opacity: 1;
+}
+  
+  /* Add a blue text color to links */
+a {
+    color: dodgerblue;
+}
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/*breadcrumb*/
+.breadcrumb_content{background-color: transparent;}
+.breadcrumb_content .breadcrumb{background-color: transparent;padding: 0px;}
+.breadcrumb_content .breadcrumb-item a{color: #a6a6a6;font-weight: 600;}
+.breadcrumb_content .breadcrumb-item.active{color: #f17437;font-weight: 600;}
+
+.validation{display:none;color: #ff1515;font-weight: 600;font-size: 13px;}
+.form_outer label{color: #394997;margin-top: 10px;}
+#generated_otp,#verifyotp{background-color: #394997;border: none;margin-top: 10px !important;color: #fff;}
+#mesg_reg_verification{display:none;color: #af7204;background-color: #fdff98;padding: 10px;border-radius: 5px;}
+#verify_generated_email_otp{display:none;}
+.hideButton {display: none;}
+#mesg_reg_verification,#mesg_reg_verification p{margin:0px;}
+.disabled_button{background-color: #6b6b6b;color:#fff;cursor: context-menu;opacity:1;}
+.disabled_button:hover{opacity: 1;background-color: #6b6b6b;}

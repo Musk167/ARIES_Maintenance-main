@@ -1,0 +1,91 @@
+{% extends 'structure.html' %}
+{% load static %}
+{% block content %}
+
+
+<style>
+    nav {
+        background-color: #333;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+    }
+
+    .section {
+        text-align: center;
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .part-button {
+        background-image: url('part-button-background.jpg'); /* Replace with your button background image URL */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: #fff;
+        font-size: 18px;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: grey; 
+    }
+
+    .part-button:hover {
+        opacity: 0.8;
+    }
+
+    .part-description {
+        display: none;
+        margin-top: 20px;
+        color: #fff;
+    }
+
+    .part-button:focus + .part-description {
+        display: block;
+    }
+    .part-button a {
+        color: #fff; 
+        text-decoration: none; 
+    }
+</style>
+
+
+<section id="critical-section" class="section">
+    <h2>Critical Parts</h2>
+    <button class="part-button"><a href="{% url 'cpart1' %}">Motor</a></button>
+    <div class="part-description">Description for Motor</div>
+    <button class="part-button"><a href="{% url 'cpart2' %}">Pump</a></button>
+    <div class="part-description">Description for Part 2</div>
+    <button class="part-button"><a href="{% url 'cpart3' %}">Evaporator</a></button>
+    <div class="part-description">Description for Part 3</div>
+    <button class="part-button"><a href="{% url 'cpart4' %}">Condensor</a></button>
+    <div class="part-description">Description for Part 4</div>
+    <button class="part-button"><a href="{% url 'cpart5' %}">Expansion Valve</a></button>
+    <div class="part-description">Description for Part 5</div>
+</section>
+
+<section id="non-critical-section" class="section">
+    <h2>Non-Critical Parts</h2>
+    <button class="part-button"><a href="{% url 'cpart6' %}">Enclosure</a></button>
+    <div class="part-description">Description for Part 6</div>
+    <button class="part-button"><a href="{% url 'cpart7' %}">Piping and Tubing</a></button>
+    <div class="part-description">Description for Part 7</div>
+    <button class="part-button"><a href="{% url 'cpart8' %}">Pressure Gauges</a></button>
+    <div class="part-description">Description for Part 8</div>
+    <button class="part-button"><a href="{% url 'cpart9' %}">Coolant</a></button>
+    <div class="part-description">Description for Part 9</div>
+    <button class="part-button"><a href="{% url 'cpart10' %}">Fins</a></button>
+    <div class="part-description">Description for Part 10</div>
+</section>
+    
+    {% endblock %}

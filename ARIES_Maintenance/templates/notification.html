@@ -1,0 +1,95 @@
+{% extends 'structure.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Sensor Data</title>
+    <style>
+
+        /* Sensor Data Styles */
+        .sensor-data {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Notification Styles */
+        .notification {
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .alert {
+            background-color: #ff9800; /* Orange */
+            color: #fff;
+        }
+
+        .warning {
+            background-color: #ff5722; /* Red-Orange */
+            color: #fff;
+        }
+
+        .danger {
+            background-color: #f44336; /* Red */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="sensor-data">
+        <h2>Temperature Sensor Data</h2>
+        <p>Current Temperature: <span id="temperature">75</span>°C</p>
+        <div class="notification alert" id="alert-notification" style="display: none;">
+            Alert: Temperature is above 50°C.
+        </div>
+        <div class="notification warning" id="warning-notification" style="display: none;">
+            Warning: Temperature is above 60°C.
+        </div>
+        <div class="notification danger" id="danger-notification" style="display: none;">
+            Danger: Temperature is above 80°C. Take immediate action!
+        </div>
+    </div>
+
+    <script>
+        // Function to check temperature and show notifications
+        function checkTemperature() {
+            const temperature = parseInt(document.getElementById('temperature').textContent);
+
+            if (temperature > 50 && temperature <= 60) {
+                document.getElementById('alert-notification').style.display = 'block';
+                document.getElementById('warning-notification').style.display = 'none';
+                document.getElementById('danger-notification').style.display = 'none';
+            } else if (temperature > 60 && temperature <= 80) {
+                document.getElementById('alert-notification').style.display = 'none';
+                document.getElementById('warning-notification').style.display = 'block';
+                document.getElementById('danger-notification').style.display = 'none';
+            } else if (temperature > 80) {
+                document.getElementById('alert-notification').style.display = 'none';
+                document.getElementById('warning-notification').style.display = 'none';
+                document.getElementById('danger-notification').style.display = 'block';
+            } else {
+                document.getElementById('alert-notification').style.display = 'none';
+                document.getElementById('warning-notification').style.display = 'none';
+                document.getElementById('danger-notification').style.display = 'none';
+            }
+        }
+
+        // Simulate temperature changes (you can replace this with real sensor data)
+        setInterval(function () {
+            const newTemperature = Math.floor(Math.random() * (100 - 20) + 20);
+            document.getElementById('temperature').textContent = newTemperature;
+            checkTemperature();
+        }, 5000); // Change temperature every 5 seconds
+    </script>
+</body>
+</html>
+{% endblock %}

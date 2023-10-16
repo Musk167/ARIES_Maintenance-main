@@ -1,0 +1,92 @@
+{% extends 'structure.html' %}
+{% load static %}
+{% block content %}
+
+
+    <style>
+
+        .login-container {
+            background-color: #ffffff70;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            margin: auto;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .input-container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .input-container input[type="text"],
+        .input-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <div class="center-container">
+        <br><br>
+        
+        <div class="login-container">
+
+            <h2 style="margin-right:180px;">Login</h2>
+
+            {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="input-container">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-container">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>                </div>
+                <button type="submit">Login</button>
+
+                {% if form.errors %}
+                <p class="error">Please correct the following errors:</p>
+                {{ form.errors }}
+                {% endif %}
+                            
+            </form>
+        </div>
+    </div>
+</div>
+
+
+   
+
+
+
+{% endblock %}
+

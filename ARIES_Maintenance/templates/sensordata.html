@@ -1,0 +1,104 @@
+{% extends 'structure.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Sensor Data</title>
+    <style>
+
+        /* Sensor Data Styles */
+        .sensor-data {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Notification Styles */
+        .notification {
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .alert {
+            background-color: #ff9800; /* Orange */
+            color: #fff;
+        }
+
+        .warning {
+            background-color: #ff5722; /* Red-Orange */
+            color: #fff;
+        }
+
+        .danger {
+            background-color: #f44336; /* Red */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="sensor-data">
+        <h2>Sensor Data</h2>
+        <body>
+            <center>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSg0oRnlbLngcvSpqUVyAcL6zHYQNlfYGMRfBVb7p36ZB0sWDAQkwmz2mBc4IadlG3aGR5LAzyrMOYN/pubhtml?widget=true&amp;headers=false"style="height:470px; width:1015px">
+                </iframe>
+            </center>
+        </body>
+     
+        </head>
+             </form>
+    
+                 <script>
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbygaJ2CRi37buOuXr2Q79Lu3WybZg-VKNckt62qcialftzjEOPyqKMJJXpK40ko5vZS/exec'
+                    const form = document.forms['data-sheet1']
+                 
+                   form.addEventListener('submit', e => {
+                     e.preventDefault()
+                     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                       .then(response => alert("ARIES"))
+                       .catch(error => alert("ARIES"))
+                   })
+               </script>
+    <script>
+        // Function to check temperature and show notifications
+        function checkTemperature() {
+            const temperature = parseInt(document.getElementById('temperature').textContent);
+
+            if (temperature > 50 && temperature <= 60) {
+                document.getElementById('alert-notification').style.display = 'block'
+                document.getElementById('warning-notification').style.display = 'none';
+                document.getElementById('danger-notification').style.display = 'none';
+            } else if (temperature > 60 && temperature <= 80) {
+                document.getElementById('alert-notification').style.display = 'none';
+                document.getElementById('warning-notification').style.display = 'block';
+                document.getElementById('danger-notification').style.display = 'none';
+            } else if (temperature > 80) {
+                document.getElementById('alert-notification').style.display = 'none';
+                document.getElementById('warning-notification').style.display = 'none';
+                document.getElementById('danger-notification').style.display = 'block';
+            } else {
+                document.getElementById('alert-notification').style.display = 'none';
+                document.getElementById('warning-notification').style.display = 'none';
+                document.getElementById('danger-notification').style.display = 'none';
+            }
+        }
+
+        // Simulate temperature changes (you can replace this with real sensor data)
+        setInterval(function () {
+            const newTemperature = Math.floor(Math.random() * (100 - 20) + 20);
+            document.getElementById('temperature').textContent = newTemperature;
+            checkTemperature();
+        }, 5000); // Change temperature every 5 seconds
+    </script>
+</body>
+</html>
+{% endblock %}

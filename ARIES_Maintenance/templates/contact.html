@@ -1,0 +1,53 @@
+{% extends 'structure.html' %} {% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Card</title>
+    <style>
+        .contact-card {
+            background: #939393;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        .contact-card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .contact-details {
+            flex-grow: 1;
+        }
+
+        .designation {
+            font-weight: bold;
+        }
+
+        .email-extension, .phone-extension {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <div class="contact-card">
+        <img src="{% static 'images/ENGG103_0.jpg' %}" alt="Person's Image">
+        <div class="contact-details">
+            <div class="designation">Designation: Engineer-F</div>
+            <div class="email-extension">Email Extension: bangia</div>
+            <div class="phone-extension">Phone Extension: 802</div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
